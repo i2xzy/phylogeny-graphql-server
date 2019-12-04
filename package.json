@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/i2xzy/fff-graphql-basics.git"
+    "url": "git+https://github.com/i2xzy/phylogeny-graphql-server.git"
   },
   "author": "Isaac Raskin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/i2xzy/fff-graphql-basics/issues"
+    "url": "https://github.com/i2xzy/phylogeny-graphql-server/issues"
   },
-  "homepage": "https://github.com/i2xzy/fff-graphql-basics#readme",
+  "homepage": "https://github.com/i2xzy/phylogeny-graphql-server#readme",
   "dependencies": {
     "apollo-datasource-rest": "^0.6.9",
     "apollo-server": "^2.9.12",
