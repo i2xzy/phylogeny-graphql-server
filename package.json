@@ -1,25 +1,27 @@
 {
-  "name": "fff-graphql-basics",
+  "name": "phylogeny-graphql-server",
   "version": "1.0.0",
   "description": "",
-  "main": "serve.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/i2xzy/fff-graphql-basics.git"
   },
-  "author": "",
+  "author": "Isaac Raskin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/i2xzy/fff-graphql-basics/issues"
   },
   "homepage": "https://github.com/i2xzy/fff-graphql-basics#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-graphql": "^0.9.0",
-    "graphql": "^14.5.8",
-    "node-fetch": "^2.6.0"
-  }
+    "apollo-datasource-rest": "^0.6.9",
+    "apollo-server": "^2.9.12",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.1"
+  },
+  "devDependencies": {}
 }
