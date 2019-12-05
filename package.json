@@ -20,8 +20,9 @@
     "apollo-datasource-rest": "^0.6.9",
     "apollo-server": "^2.9.12",
     "dotenv": "^8.2.0",
-    "esm": "^3.2.25",
-    "nodemon": "^2.0.1"
+    "esm": "^3.2.25"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
 }
