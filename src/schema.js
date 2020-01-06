@@ -4,7 +4,9 @@ const typeDefs = gql`
   type Query {
     tree(id: ID, depth: Int): Tree
     clade(id: ID!): Clade
-    # me: User
+    search(value: String!): [SearchResult]
+    users: [User]
+    user(id: ID!): User
   }
 
   #type Mutation {
@@ -35,6 +37,39 @@ const typeDefs = gql`
     name: String
     folder: String
     isDefault: Boolean
+  }
+
+  type SearchResult {
+    id: ID
+    name: String
+  }
+
+  type User {
+    id: ID
+    username: String
+    email: String
+    password: String
+    title: String
+    firstName: String
+    lastName: String
+    address: String
+    postcode: String
+    phone: String
+    dateOfBirth: String
+    gender: String
+    coverLetter: String
+    created: String
+    role: Role
+    referenceCode: String
+    subscribed: Boolean
+    isActive: Boolean
+    isConfirmed: Boolean
+    modified: Boolean
+  }
+
+  type Role {
+    id: ID!
+    description: String
   }
 `;
 

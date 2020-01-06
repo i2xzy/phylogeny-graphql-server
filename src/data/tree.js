@@ -18,6 +18,11 @@ class TreeAPI extends RESTDataSource {
     return this.cladeReducer(response);
   }
 
+  async searchClade({ value }) {
+    const response = await this.post('search', { name: value });
+    return response.map(result => this.searchResultReducer(result));
+  }
+
   treeReducer(tree) {
     return {
       ...tree,
@@ -38,6 +43,13 @@ class TreeAPI extends RESTDataSource {
   parentReducer(parent) {
     if (!parent) return null;
     return parent._id ? this.cladeReducer(parent) : { id: parent };
+  }
+
+  searchResultReducer(result) {
+    return {
+      ...result,
+      id: result._id
+    };
   }
 }
 

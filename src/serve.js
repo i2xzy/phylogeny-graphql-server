@@ -3,12 +3,17 @@ import typeDefs from './schema';
 import resolvers from './resolvers';
 
 import TreeAPI from './data/tree';
+import UserAPI from './data/user';
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => ({
+    token: req.headers.authorization || ''
+  }),
   dataSources: () => ({
-    treeAPI: new TreeAPI()
+    treeAPI: new TreeAPI(),
+    userAPI: new UserAPI()
   }),
   engine: {
     apiKey: process.env.ENGINE_API_KEY
