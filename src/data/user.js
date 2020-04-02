@@ -25,10 +25,31 @@ class UserAPI extends RESTDataSource {
     }
   }
 
+  async createUser({ data }) {
+    try {
+      const response = await this.post('users', data);
+      return { success: !!response };
+    } catch (e) {
+      console.warn(e);
+      return e;
+    }
+  }
+
+  async updateUser({ id, data }) {
+    const response = await this.put(`users/${id}`, data);
+    if (response) return { success: true };
+  }
+
+  async destroyUser({ id }) {
+    const response = await this.put(`users/${id}`);
+    console.log(response);
+  }
+
   userReducer(user) {
     return {
       ...user,
-      id: user._id
+      id: user._id,
+      role: { ...user.role, id: user.role._id }
     };
   }
 }

@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server';
-import typeDefs from './schema';
+import typeDefs from './types';
 import resolvers from './resolvers';
 
 import TreeAPI from './data/tree';
