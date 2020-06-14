@@ -10,7 +10,7 @@ class TreeAPI extends RESTDataSource {
     const response = await this.post('tree_of_life/subtree', {
       node_id: id,
       format: 'arguson',
-      height_limit: depth
+      height_limit: depth,
     });
     return this.cladeReducer(response.arguson);
   }
@@ -18,7 +18,7 @@ class TreeAPI extends RESTDataSource {
   async getClade({ id }) {
     const response = await this.post('tree_of_life/node_info', {
       node_id: id,
-      include_lineage: true
+      include_lineage: true,
     });
     return this.cladeReducer(response);
   }
@@ -26,9 +26,9 @@ class TreeAPI extends RESTDataSource {
   async searchClade({ value }) {
     const response = await this.post('tnrs/autocomplete_name', {
       name: value,
-      include_suppressed: true
+      // include_suppressed: true,
     });
-    return response.map(result => this.searchResultReducer(result));
+    return response.map((result) => this.searchResultReducer(result));
   }
 
   cladeReducer(clade) {
@@ -43,17 +43,18 @@ class TreeAPI extends RESTDataSource {
       leaves: clade.num_tips,
       hasChildren: clade.num_tips > 0,
       children:
-        clade.children && clade.children.map(node => this.cladeReducer(node)),
+        clade.children && clade.children.map((node) => this.cladeReducer(node)),
       lineage:
-        clade.lineage && clade.lineage.map(node => this.cladeReducer(node)),
-      extant: !(clade.flags && clade.flags.includes('extinct'))
+        clade.lineage && clade.lineage.map((node) => this.cladeReducer(node)),
+      parentId: clade.lineage && clade.lineage[0] && clade.lineage[0].node_id,
+      extant: !(clade.flags && clade.flags.includes('extinct')),
     };
   }
 
   searchResultReducer(result) {
     return {
-      id: result.ott_id,
-      name: result.unique_name
+      id: `ott${result.ott_id}`,
+      name: result.unique_name,
     };
   }
 }

@@ -11,5 +11,6 @@ export default gql`
     leaves: Int
     synonyms: [String]
     lineage: [Clade]
+    parentId: ID
   }
 `;
