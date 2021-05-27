@@ -4,7 +4,7 @@ This is the graphql server for the [Phylogeny Explorer](https://dev.phylogenyexp
 
 ## Installation
 
-To run the server, run these commands:
+To run the server, run this command:
 
 ```bash
 npm i && npm start
